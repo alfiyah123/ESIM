@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">E-SIM</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_materi">Materi</string>
+    <string name="menu_simulasi">Simulasi Ujian</string>
+    <string name="menu_latihan">Latihan Soal</string>
+    <string name="menu_grafik">Grafik</string>
+</resources>

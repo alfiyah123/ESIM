@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#FFF"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    tools:context="com.example.rahmadewi.esim1.feature.mainFragment.MainFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#FFF"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:background="#FFF"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FFF"
+                android:layout_marginBottom="5dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="3dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btnSimA"
+                        android:layout_width="150dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/sima"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="0dp"
+                        android:layout_gravity="bottom"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:background="#FFF"
+                    >
+
+                    <Button
+                        android:id="@+id/btnSimB1"
+                        android:layout_width="150dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/simb1"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:gravity="left|center"
+                        android:padding="0dp"
+                        android:layout_gravity="bottom"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="#FFF"
+                    android:layout_marginRight="3dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btnSimB2"
+                        android:layout_width="150dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/simb2"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="0dp"
+                        android:layout_gravity="bottom"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentEnd="true" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="#FFF"
+                    android:layout_marginLeft="3dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btnSimC"
+                        android:layout_width="150dp"
+                        android:layout_height="180dp"
+                        android:background="@drawable/simc"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:gravity="left|center"
+                        android:padding="0dp"
+                        android:layout_gravity="bottom"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentStart="true" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gbrCoba"/>
+
+    </RelativeLayout>
+</ScrollView>

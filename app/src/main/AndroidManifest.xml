@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rahmadewi.esim1">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/logo1"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".feature.splash.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".feature.main.MainActivity"
+            android:label="E-SIM"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="com.example.rahmadewi.sss.MAINACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".feature.menu.MenuActivity"
+            android:label="Menu"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.main.MainActivity" />
+        <activity
+            android:name=".feature.grafik.GrafikActivity"
+            android:label="Grafik"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.menu.MenuActivity" />
+        <activity
+            android:name=".feature.latihan_soal.LatihanActivity"
+            android:label="Latihan Soal"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.menu.MenuActivity" />
+        <activity
+            android:name=".feature.materi.MateriActivity"
+            android:label="Materi"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.menu.MenuActivity" />
+        <activity
+            android:name=".feature.simulasi.SimulasiActivity"
+            android:label="Simulasi Ujian"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.menu.MenuActivity" />
+        <activity
+            android:name=".feature.artikel.ArtikelActivity"
+            android:label="Artikel"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.materi.MateriActivity" />
+        <activity
+            android:name=".feature.rambu.RambuActivity"
+            android:label="Rambu-rambu Lalu Lintas"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.materi.MateriActivity" />
+        <activity
+            android:name=".feature.image.ImageActivity"
+            android:label="Detail Gambar"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.artikel.ArtikelActivity" />
+        <activity
+            android:name=".feature.image.Image2Activity"
+            android:label="Detail Gambar"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.latihan_soal.LatihanActivity" />
+        <activity
+            android:name=".feature.hasilSimulasi.HasilActivity"
+            android:label="Hasil Simulasi Ujian"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.menu.MenuActivity" />
+        <activity
+            android:name=".feature.pembahasan.PembahasanActivity"
+            android:label="Pembahasan"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.hasilSimulasi.HasilActivity" />
+        <activity
+            android:name=".feature.register.RegisterActivity"
+            android:label="Register"
+            android:launchMode="singleTop"
+            android:parentActivityName=".feature.login.LoginActivity" />
+        <activity
+            android:name=".feature.login.LoginActivity"
+            android:label="Login"
+            android:launchMode="singleTop" />
+    </application>
+
+</manifest>
