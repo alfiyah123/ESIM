@@ -17,6 +17,7 @@ import com.example.rahmadewi.esim1.base.mvp.MvpActivity;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -101,6 +102,7 @@ public class SimulasiActivity extends MvpActivity<SimulasiPresenter> implements 
     @Override
     public void updateId(ArrayList<Integer> id_soal) {
         this.id_soal = id_soal;
+        System.out.println("data id soal : "+ Arrays.asList(this.id_soal));
     }
 
     @Override

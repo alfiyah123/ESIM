@@ -29,7 +29,7 @@ class SimulasiPresenter extends BasePresenter<SimulasiView> {
         topik.add("Pengetahuan Undang-Undang Lalu Lintas Angkutan Jalan");
         topik.add("Tata Cara Mengemudi");
         topik.add("Teknik Kendaraan");
-        topik.add("Hak dan Kewajiban Mengemudi");
+        topik.add("Hak dan Kewajiban Pengemudi");
         topik.add("Penyebab Kecelakaan");
         topik.add("Perilaku Berlalu Lintas");
         topik.add("Pengetahuan Tentang Rambu Lalu Lintas");

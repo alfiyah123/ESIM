@@ -27,16 +27,22 @@ public class CrudSoal {
 
     public List<Integer> getDataRandomSimulasi(String topik, String kategori, int jumlah, List<Integer> id_soal){
         Cursor c2;
-        String query = "SELECT DISTINCT id_soal FROM data_soal where kategori='UMUM' OR kategori='"+kategori+"'" +
-                " AND topik='"+topik+"' ORDER BY RANDOM() LIMIT "+jumlah;
-        c2 = DatabaseHelper.rawQuery(query);
-        if (c2 != null && c2.getCount() != 0) {
-            if(c2.moveToFirst()) {
-                do {
-                    id_soal.add(c2.getInt(c2.getColumnIndex("id_soal")));
-                } while (c2.moveToNext());
+        int i=0;
+        while(i < jumlah) {
+            String query = "SELECT DISTINCT id_soal FROM data_soal where (kategori='UMUM' OR kategori='" + kategori + "')" +
+                    " AND topik='" + topik + "' ORDER BY RANDOM() LIMIT 1";
+            c2 = DatabaseHelper.rawQuery(query);
+            if (c2 != null && c2.getCount() != 0) {
+                if (c2.moveToFirst()) {
+                    do {
+                        if (!id_soal.contains(c2.getInt(c2.getColumnIndex("id_soal")))){
+                            id_soal.add(c2.getInt(c2.getColumnIndex("id_soal")));
+                            i++;
+                        }
+                    } while (c2.moveToNext());
+                }
+                c2.close();
             }
-            c2.close();
         }
         return id_soal;
     }
