@@ -2,6 +2,7 @@ package com.example.rahmadewi.esim1.feature.latihan_soal;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ import butterknife.BindView;
 public class LatihanActivity extends MvpActivity<LatihanPresenter> implements LatihanView, View.OnClickListener {
 
     String jawaban, kategori, fileName, jawaban_user;
+    int id;
 
     @BindView(R.id.txtSoalLatihan)
     TextView txtSoalLatihan;
@@ -49,6 +51,9 @@ public class LatihanActivity extends MvpActivity<LatihanPresenter> implements La
     RadioButton jawaban_latihan;
     Button dialogButton;
 
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
     @Override
     protected LatihanPresenter cretePresenter() {
         return new LatihanPresenter(this);
@@ -59,12 +64,21 @@ public class LatihanActivity extends MvpActivity<LatihanPresenter> implements La
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_latihan);
 
-        kategori = getIntent().getStringExtra("kategori");
-        presenter.getSoal(kategori);
-
         btnCekLatihan.setOnClickListener(this);
         btnNextLatihan.setOnClickListener(this);
         gbrLatihan.setOnClickListener(this);
+
+        pref = getApplicationContext().getSharedPreferences("MyPref", MODE_PRIVATE);
+        editor = pref.edit();
+
+        if(pref.getInt("id_soal", 0) == 0){
+            id = 0;
+        }else{
+            id = pref.getInt("id_soal",0);
+        }
+
+        kategori = getIntent().getStringExtra("kategori");
+        presenter.getSoal(kategori, id);
 
         opsi_latihan.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -95,13 +109,16 @@ public class LatihanActivity extends MvpActivity<LatihanPresenter> implements La
     }
 
     @Override
-    public void tampilData(String soal, String opsi_1, String opsi_2, String opsi_3, String jawaban, String fileName) {
+    public void tampilData(String soal, String opsi_1, String opsi_2, String opsi_3, String jawaban, String fileName, String id_soal) {
         txtSoalLatihan.setText(soal);
         opsi_1_latihan.setText(opsi_1);
         opsi_2_latihan.setText(opsi_2);
         opsi_3_latihan.setText(opsi_3);
         this.jawaban = jawaban;
         this.fileName = fileName;
+        this.id = Integer.parseInt(id_soal);
+        editor.putInt("id_soal",this.id);
+        editor.commit();
     }
 
     @Override
@@ -113,7 +130,7 @@ public class LatihanActivity extends MvpActivity<LatihanPresenter> implements La
     public void soalNext() {
         opsi_latihan.clearCheck();
         btnCekLatihan.setEnabled(false);
-        presenter.getSoal(kategori);
+        presenter.getSoal(kategori, id);
     }
 
     @Override

@@ -18,17 +18,18 @@ class LatihanPresenter extends BasePresenter<LatihanView> {
         super.attachView(view);
     }
 
-    void getSoal(String kategori){
+    void getSoal(String kategori, int id){
         ResultItem resultItem;
 
         CrudSoal crudSoal = new CrudSoal();
-        resultItem = crudSoal.getDataRandomLatihan(kategori);
+        resultItem = crudSoal.getDataRandomLatihan(kategori, id);
 
         String soal = resultItem.getSoal();
         String opsi_1 = resultItem.getOpsi1();
         String opsi_2 = resultItem.getOpsi2();
         String opsi_3 = resultItem.getOpsi3();
         String jawaban = resultItem.getJawaban();
+        String id_soal = resultItem.getIdSoal();
 
         String fileName = resultItem.getGambar();
 
@@ -41,7 +42,7 @@ class LatihanPresenter extends BasePresenter<LatihanView> {
             view.tampilGambar(myBitmap);
         }
 
-        view.tampilData(soal,opsi_1,opsi_2,opsi_3,jawaban,fileName);
+        view.tampilData(soal,opsi_1,opsi_2,opsi_3,jawaban,fileName, id_soal);
     }
 
     void moveGambar(Activity activity, String fileName){

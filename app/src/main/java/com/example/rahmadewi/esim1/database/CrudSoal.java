@@ -78,12 +78,12 @@ public class CrudSoal {
         return hasil;
     }
 
-    public ResultItem getDataRandomLatihan(String kategori){
+    public ResultItem getDataRandomLatihan(String kategori, int id){
         List<String> opsi = new ArrayList<>();
         ResultItem hasil = new ResultItem();
         Cursor c2;
-        String query = "SELECT * FROM data_soal where kategori='UMUM' OR kategori='"+kategori+"'" +
-                "  ORDER BY RANDOM() LIMIT 1";
+        String query = "SELECT * FROM data_soal where (kategori='UMUM' OR kategori='"+kategori+"')" +
+                "  AND id_soal>"+id+" LIMIT 1";
         c2 = DatabaseHelper.rawQuery(query);
         if (c2 != null && c2.getCount() != 0) {
             if(c2.moveToFirst()) {
@@ -99,11 +99,15 @@ public class CrudSoal {
                     hasil.setOpsi1(opsi.get(0));
                     hasil.setOpsi2(opsi.get(1));
                     hasil.setOpsi3(opsi.get(2));
+                    hasil.setIdSoal(c2.getString(c2.getColumnIndex("id_soal")));
 
                     opsi.clear();
                 } while (c2.moveToNext());
             }
             c2.close();
+        }else{
+            id = 0;
+            getDataRandomLatihan(kategori,id);
         }
         return hasil;
     }
