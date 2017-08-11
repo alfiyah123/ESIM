@@ -44,14 +44,15 @@ public class SimulasiActivity extends MvpActivity<SimulasiPresenter> implements 
     Button btnNextSimulasi;
 
     List<String> jawaban = new ArrayList<>();
-    List<String> jawabanUser = new ArrayList<>();
+    ArrayList<String> jawabanUser = new ArrayList<>();
     ArrayList<Integer> id_soal = new ArrayList<>();
     List<Integer> jumlah;
     List<String> topik;
-
+    String[][] opsi = new String[30][3];
     boolean[] validasi = new boolean[30];
 
     int no=1;
+    int nomor = 0;
     int jmlSoal = 30;
 
     String fileName, kategori;
@@ -113,6 +114,10 @@ public class SimulasiActivity extends MvpActivity<SimulasiPresenter> implements 
         opsi_3_simulasi.setText(opsi_3);
         this.jawaban.add(jawaban);
         this.fileName = fileName;
+        opsi[nomor][0] = opsi_1;
+        opsi[nomor][1] = opsi_2;
+        opsi[nomor][2] = opsi_3;
+        nomor++;
     }
 
     @Override
@@ -212,7 +217,7 @@ public class SimulasiActivity extends MvpActivity<SimulasiPresenter> implements 
         System.out.println("salah :"+salah);
         System.out.println("nilai :"+score);
 
-        presenter.moveNilai(SimulasiActivity.this, kategori, score, benar, salah, id_soal, validasi);
+        presenter.moveNilai(SimulasiActivity.this, kategori, score, benar, salah, id_soal, validasi, opsi, jawabanUser);
         finish();
     }
 }

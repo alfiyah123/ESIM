@@ -21,6 +21,7 @@ import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import butterknife.BindView;
@@ -54,6 +55,8 @@ public class HasilActivity extends MvpActivity<HasilPresenter> implements HasilV
 
     boolean[] validasi = new boolean[30];
     ArrayList<Integer> id_soal = new ArrayList<>();
+    ArrayList<String> jawabanUser = new ArrayList<>();
+    String[][] opsi;
 
     ProgressDialog pDialog;
 
@@ -79,6 +82,15 @@ public class HasilActivity extends MvpActivity<HasilPresenter> implements HasilV
         id_soal = myBundle.getIntegerArrayList("id_soal");
         validasi = myBundle.getBooleanArray("validasi");
         kategori = myBundle.getString("kategori");
+        jawabanUser = myBundle.getStringArrayList("jawabanUser");
+
+        Object[] objectArray = (Object[]) getIntent().getExtras().getSerializable("opsi");
+        if(objectArray!=null){
+            opsi = new String[objectArray.length][];
+            for(int i=0;i<objectArray.length;i++){
+                opsi[i]=(String[]) objectArray[i];
+            }
+        }
 
         if(benar > 21){
             txtStatus.setText("LULUS");
@@ -119,10 +131,10 @@ public class HasilActivity extends MvpActivity<HasilPresenter> implements HasilV
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btnHome:
-                presenter.moveIntent(HasilActivity.this, MainActivity.class, null, null);
+                presenter.moveIntent(HasilActivity.this, MainActivity.class, null, null, null, null);
                 break;
             case R.id.btnPembahasan:
-                presenter.moveIntent(HasilActivity.this, PembahasanActivity.class, id_soal, validasi);
+                presenter.moveIntent(HasilActivity.this, PembahasanActivity.class, id_soal, validasi, opsi, jawabanUser);
                 break;
             case R.id.btnDashboard:
                 HashMap<String, String> userData = session.getUserDetails();

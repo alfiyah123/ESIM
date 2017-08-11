@@ -1,6 +1,5 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="16dp"
@@ -36,16 +35,55 @@
             android:layout_height="wrap_content"
             android:text="Ini untuk Soal"
             android:textStyle="bold"
-            android:layout_below="@+id/gbrPembahasan"
             android:id="@+id/txtSoalPembahasan" />
 
-        <TextView
-            android:layout_marginBottom="10dp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ini untuk Jawaban"
-            android:layout_below="@+id/txtSoalPembahasan"
-            android:id="@+id/txtJawabanPembahasan" />
+            android:id="@+id/bgJawaban1"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ini untuk Jawaban1"
+                android:id="@+id/txtJawabanPembahasan1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bgJawaban2"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ini untuk Jawaban2"
+                android:id="@+id/txtJawabanPembahasan2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/bgJawaban3"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="6dp"
+            android:layout_marginBottom="3dp">
+            <TextView
+                android:layout_marginBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ini untuk Jawaban3"
+                android:id="@+id/txtJawabanPembahasan3" />
+        </LinearLayout>
 
     </LinearLayout>
 

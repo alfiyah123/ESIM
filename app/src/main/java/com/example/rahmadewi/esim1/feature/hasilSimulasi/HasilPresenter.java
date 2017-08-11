@@ -19,6 +19,7 @@ import com.example.rahmadewi.esim1.network.NetworkCallback;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 class HasilPresenter extends BasePresenter<HasilView>{
@@ -100,12 +101,14 @@ class HasilPresenter extends BasePresenter<HasilView>{
         });
     }
 
-    void moveIntent(Activity activity, Class tujuan, @Nullable ArrayList<Integer> id_soal, @Nullable boolean[] validasi){
+    void moveIntent(Activity activity, Class tujuan, @Nullable ArrayList<Integer> id_soal, @Nullable boolean[] validasi, @Nullable String[][] opsi, @Nullable ArrayList<String> jawabanUser){
         Intent intent = new Intent(activity, tujuan);
         if(id_soal != null){
             Bundle myData = new Bundle();
             myData.putIntegerArrayList("id_soal", id_soal);
             myData.putBooleanArray("validasi", validasi);
+            myData.putStringArrayList("jawabanUser",jawabanUser);
+            myData.putSerializable("opsi",opsi);
             intent.putExtras(myData);
         }
         view.moveToIntent(intent);

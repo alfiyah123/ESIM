@@ -106,7 +106,7 @@ class SimulasiPresenter extends BasePresenter<SimulasiView> {
         crudKesalahan.selectKesalahan(kategori,topik);
     }
 
-    void moveNilai(Activity activity, String kategori, double score, int benar, int salah, ArrayList<Integer> id_soal, boolean[] validasi){
+    void moveNilai(Activity activity, String kategori, double score, int benar, int salah, ArrayList<Integer> id_soal, boolean[] validasi, String[][] opsi, ArrayList<String> jawabanUser){
         Intent myIntent = new Intent(activity, HasilActivity.class);
         Bundle myData = new Bundle();
         myData.putString("kategori", kategori);
@@ -114,7 +114,9 @@ class SimulasiPresenter extends BasePresenter<SimulasiView> {
         myData.putInt("benar", benar);
         myData.putInt("salah", salah);
         myData.putIntegerArrayList("id_soal", id_soal);
+        myData.putSerializable("opsi",opsi);
         myData.putBooleanArray("validasi" ,validasi);
+        myData.putStringArrayList("jawabanUser",jawabanUser);
         myIntent.putExtras(myData);
         view.moveIntent(myIntent);
     }

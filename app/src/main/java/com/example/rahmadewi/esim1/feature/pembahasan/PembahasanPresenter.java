@@ -16,12 +16,8 @@ class PembahasanPresenter extends BasePresenter<PembahasanView> {
         super.attachView(view);
     }
 
-    void getData(int id_soal, boolean validasi){
+    void getData(int id_soal){
         String soal, jawaban, fileName;
-
-        if(!validasi){
-            view.pembahsanEror();
-        }
 
         CrudSoal crudSoal = new CrudSoal();
         ResultItem resultItem = crudSoal.getDataSoalSimulasi(id_soal);

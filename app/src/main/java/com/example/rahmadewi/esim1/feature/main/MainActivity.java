@@ -54,15 +54,6 @@ public class MainActivity extends MvpActivity<MainPresenter>
 
         session = new SessionManager(getApplicationContext());
 
-        TextView user = (TextView) findViewById(R.id.txtLogin);
-
-        if(session.isLoggedIn()) {
-            HashMap<String, String> userData = session.getUserDetails();
-            String username = userData.get(SessionManager.KEY_USERNAME);
-            System.out.println("ini username : "+username);
-            //user.setText(username);
-        }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -74,6 +65,16 @@ public class MainActivity extends MvpActivity<MainPresenter>
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View view1 = navigationView.getHeaderView(0);
+        TextView user = (TextView) view1.findViewById(R.id.txtLogin);
+
+        if(session.isLoggedIn()) {
+            HashMap<String, String> userData = session.getUserDetails();
+            String username = userData.get(SessionManager.KEY_USERNAME);
+            System.out.println("ini username : "+username);
+            user.setText(username);
+        }
     }
 
     @Override
