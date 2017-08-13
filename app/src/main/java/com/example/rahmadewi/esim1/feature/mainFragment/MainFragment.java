@@ -60,7 +60,8 @@ public class MainFragment extends MvpFragment<MainFragmentPresenter> implements 
     ProgressDialog pDialog;
     ProgressDialog pDialogImage;
 
-    String url = "http://192.168.1.101/esim1/";
+    //String url = "http://192.168.1.101/esim1/";
+    String url = "http://esimsurabaya.tk/";
 
     private AQuery aq;
     int i=0;

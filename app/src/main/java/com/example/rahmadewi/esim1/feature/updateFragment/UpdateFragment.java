@@ -61,7 +61,8 @@ public class UpdateFragment extends MvpFragment<UpdatePresenter> implements Upda
     ArrayList<String> id = new ArrayList<>();
     List<String> gambar = new ArrayList<>();
 
-    String url = "http://192.168.1.101/esim1/";
+    //String url = "http://192.168.1.101/esim1/";
+    String url = "http://esimsurabaya.tk/";
     int i=0;
 
     private AQuery aq;
